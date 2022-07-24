@@ -49,7 +49,6 @@ const Navbar = () => {
                     display="flex"
                     justifyContent="space-between"
                     py={3}
-                    px="2vw"
                >
                     <Flex align="center" px="0px">
                          <LinkItem href="/" px="0px" passHref>
