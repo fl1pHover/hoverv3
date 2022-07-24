@@ -42,16 +42,17 @@ const Navbar = () => {
      // const { toggleColorMode } = useColorMode();
 
      return (
-          <Box position="sticky" top={0} as="nav">
+          <Box position="sticky" top={0} as="nav" px={0}>
                <Container
-                    maxW="container.xl"
+                    maxW="100%"
+                    px="2vw"
                     display="flex"
                     justifyContent="space-between"
                     py={3}
-                    px={0}
+                    px="2vw"
                >
-                    <Flex align="center">
-                         <LinkItem href="/" passHref>
+                    <Flex align="center" px="0px">
+                         <LinkItem href="/" px="0px" passHref>
                               <Image
                                    width={100}
                                    height={30}
@@ -100,7 +101,7 @@ const Navbar = () => {
                               <Button
                                    variant="second-btn"
                                    size="base"
-                                   height={6}
+                                   // height={6}
                               >
                                    Support
                               </Button>

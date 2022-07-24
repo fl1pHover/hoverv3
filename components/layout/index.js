@@ -1,6 +1,7 @@
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import Navbar from "../navbar";
+import Solutions from "../solutions";
 import { Box, Container } from "@chakra-ui/react";
 
 const Layout = ({ children }) => {
@@ -14,11 +15,15 @@ const Layout = ({ children }) => {
                     <meta name="description" content="Hover's Website" />
                     <meta name="author" content="fl1pHover" />
                     <meta name="author" content="Hover" />
+
                     <title>Hover - Website</title>
                </Head>
-               <Navbar />
 
-               <Container maxW="container.xl">{children}</Container>
+               <Container maxW={{ base: "100%", "2xl": "80%" }} px="3vw">
+                    <Navbar />
+                    {children}
+                    <Solutions />
+               </Container>
           </Box>
      );
 };

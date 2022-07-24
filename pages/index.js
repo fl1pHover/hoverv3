@@ -22,47 +22,48 @@ export default function Home() {
                          position="absolute"
                          maxWidth="50vw"
                          zIndex="-1"
-                    ></Image>
+                    />
                </Box>
                <Container
-                    maxW={{ base: "100%", sm: "83%", md: "66%" }}
+                    maxW={{ base: "100%", sm: "100%", md: "80%", "2xl": "70%" }}
                     justifyContent="flex-end"
                     flexWrap="wrap"
-                    px={0}
+                    px="2vw"
                >
                     <Heading
                          as="h1"
-                         mt="1em"
-                         mb="0.8em"
+                         mt="1.2em"
+                         mb="1em"
                          bg={useColorModeValue("undefined", "whiteAlpha.200")}
                          fontSize={{
-                              base: "calc(1rem + 3vw)",
+                              base: "calc(1.5rem + 3vw)",
                               sm: "calc(2rem + 3vw)",
-                              lg: "calc(1.5rem + 3vw)",
+                              lg: "calc(1.9rem + 3vw)",
                          }}
                          variant="main"
                          // size="main-heading"
                          textAlign="left"
-                         fontWeight="normal"
+                         fontWeight="bold"
                     >
                          <span>Digital solutions</span> <br />
                          <span>based on human</span>
                          <br />
-                         <span>understanding</span>
+                         <span className="underline">understanding</span>
                     </Heading>
                     <Box
                          justifyContent="flex-end"
                          px={{ base: "0", md: "15px" }}
                          marginLeft={{ base: 0, sm: "50%" }}
                     >
-                         <Text fontSize={12}>
+                         <Text fontSize={16}>
                               Uden mennesker løser teknologi ingenting. Vi
                               matcher teknologi med menneskers behov og skaber
                               digitale løsninger, der giver mening, er lette at
                               forstå og anvende.
                          </Text>
 
-                         <Button variant="main-btn" size="base" mt={3}>
+                         <Button variant="main-btn" size="main" mt={3}>
+                              {/* <Image width={10} src="/images/right-arrow.svg" /> */}
                               Nmg dar sda
                          </Button>
                     </Box>
@@ -71,10 +72,12 @@ export default function Home() {
                          as="h3"
                          variant="lead"
                          fontSize={{
-                              base: "calc(8px + 1.2vw)",
-                              md: "20px",
+                              base: "calc(14px + 1.4vw)",
+                              md: "28px",
                          }}
-                         mt="6em"
+                         textStyle="bannerWord"
+                         mt={{ base: "5em", md: "6em" }}
+                         mb={{ base: "5em", md: "6em" }}
                     >
                          Vi tror på, at der skal mere end teknologi og
                          kode-skills til at udvikle digitale løsninger med
