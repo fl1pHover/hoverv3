@@ -19,3 +19,120 @@
           top: 100%;
      }
 }
+
+.main__btn {
+     position: relative;
+     margin-top: 10px;
+     &:before {
+          content: "";
+          position: relative;
+          background-image: url(/images/accesories/right-arrow.png);
+          background-size: cover;
+          background-position: 50%;
+          width: 0em;
+          height: 1em;
+          opacity: 0;
+          transition: 0.5s;
+          transform: translateX(-100%);
+     }
+     &:after {
+          content: "";
+          position: relative;
+          background-image: url(/images/accesories/right-arrow.png);
+          background-size: cover;
+          background-position: 50%;
+          width: 2em;
+          height: 1em;
+          transition: 0.5s;
+          margin-left: 10px;
+     }
+     &:hover {
+          &:before {
+               opacity: 1;
+               width: 2em;
+               transform: translateX(0);
+               margin-right: 0.5em;
+               margin-right: 10px;
+          }
+          &:after {
+               opacity: 0;
+               transform: translateX(0.5em);
+               width: 0;
+               margin-left: 0px;
+          }
+     }
+}
+
+.switch {
+     position: relative;
+     // width: 80px;
+     // height: 40px;
+     // .chakra-switch__track {
+     //      width: 100%;
+     //      height: 100%;
+     // }
+     // .chakra-switch__thumb {
+     //      width: 50%;
+     //      height: 100%;
+     // }
+     font-size: 6px;
+     letter-spacing: 1px;
+     &:before {
+          content: "ON";
+          position: absolute;
+          top: 50%;
+          left: -35%;
+          transform: translate(-50%, -50%);
+     }
+     &:after {
+          content: "OFF";
+          position: absolute;
+          top: 50%;
+          right: -35%;
+          transform: translate(50%, -50%);
+     }
+}
+
+.understanding {
+     position: relative;
+     &::before {
+          content: "";
+          position: absolute;
+          background-image: url(/images/orange-circle.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          z-index: -1;
+          transform: scale(1.3);
+          background-position: 50%;
+          width: 60%;
+          height: 150%;
+          transform: translate(-18%, -16%);
+          transition: opacity 0.375s cubic-bezier(0.33, 0, 0.2, 1);
+          animation: pulse 1.75s infinite;
+     }
+     @keyframes pulse {
+          0% {
+               transform: translate(-18%, -16%) scale(0.95);
+          }
+          70% {
+               transform: translate(-18%, -16%) scale(1.05);
+          }
+          100% {
+               transform: translate(-18%, -16%) scale(0.95);
+          }
+     }
+}
+
+.marquee-container {
+     .overlay {
+          display: none;
+     }
+}
+
+#navbar {
+     z-index: 10;
+     transition: 0.3s;
+}
+.navbar-scroll {
+     background-color: #ececec;
+}

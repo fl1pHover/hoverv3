@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import NextLink from "next/link";
 import {
      Container,
@@ -14,6 +14,7 @@ import {
      Image,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import WideContainer from "./container/wideContainer";
 
 const LinkItem = ({ href, children, target, props }) => {
      const { toggleColorMode } = useColorMode();
@@ -38,78 +39,95 @@ const LinkItem = ({ href, children, target, props }) => {
           </NextLink>
      );
 };
+
 const Navbar = () => {
      // const { toggleColorMode } = useColorMode();
+     const [navbar, setNavbar] = useState(false);
+     const changeBg = () => {
+          if (window.scrollY >= 100) {
+               setNavbar(true);
+          } else {
+               setNavbar(false);
+          }
+     };
+
+     if (typeof window !== "undefined") {
+          window.addEventListener("scroll", changeBg);
+     }
 
      return (
-          <Box position="sticky" top={0} as="nav" px={0}>
-               <Container
-                    maxW="100%"
-                    px="2vw"
-                    py={3}
-                    display="flex"
-                    justifyContent="space-between"
-               >
-                    <Flex align="center" px="0px">
-                         <LinkItem href="/" px="0px" passHref>
-                              <Image
-                                   width={100}
-                                   height={30}
-                                   objectFit="cover"
-                                   src="/images/hover.png"
-                                   alt="Hover Logo"
-                              />
-                         </LinkItem>
-                    </Flex>
-                    <Stack
-                         direction={{ base: "column", md: "row" }}
-                         display={{ base: "none", md: "flex" }}
-                         width={{ base: "full", md: "auto" }}
-                         alignItems="center"
-                    >
-                         <Stack direction={{ base: "column", md: "row" }}>
-                              <LinkItem href="/work" passHref>
-                                   Vores mening
+          <Box
+               id="navbar"
+               className={navbar ? "navbar-scroll" : "navbar"}
+               position="sticky"
+               top={0}
+               as="nav"
+               px={0}
+               py={5}
+          >
+               <WideContainer>
+                    <Box display="flex" justifyContent="space-between">
+                         <Flex align="center" px="0px">
+                              <LinkItem href="/" px="0px" passHref>
+                                   <Image
+                                        width={100}
+                                        height={30}
+                                        objectFit="cover"
+                                        src="/images/hover.png"
+                                        alt="Hover Logo"
+                                   />
                               </LinkItem>
-                              <LinkItem
-                                   href="/resume"
-                                   // key={useColorModeValue("under", "dark")}
-                                   passHref
-                              >
-                                   {/* <button onClick={toggleColorMode}> */}
-                                   Microsoft løsninger
-                                   {/* </button> */}
-                              </LinkItem>
-                              <LinkItem href="/contact" passHref>
-                                   Producter
-                              </LinkItem>
-                              <LinkItem href="/contact" passHref>
-                                   Om os
-                              </LinkItem>
+                         </Flex>
+                         <Stack
+                              direction={{ base: "column", md: "row" }}
+                              display={{ base: "none", md: "flex" }}
+                              width={{ base: "full", md: "auto" }}
+                              alignItems="center"
+                         >
+                              <Stack direction={{ base: "column", md: "row" }}>
+                                   <LinkItem href="/work" passHref>
+                                        Vores mening
+                                   </LinkItem>
+                                   <LinkItem
+                                        href="/resume"
+                                        // key={useColorModeValue("under", "dark")}
+                                        passHref
+                                   >
+                                        {/* <button onClick={toggleColorMode}> */}
+                                        Microsoft løsninger
+                                        {/* </button> */}
+                                   </LinkItem>
+                                   <LinkItem href="/contact" passHref>
+                                        Producter
+                                   </LinkItem>
+                                   <LinkItem href="/contact" passHref>
+                                        Om os
+                                   </LinkItem>
+                              </Stack>
+                              <Stack>
+                                   <Image
+                                        width={25}
+                                        height={25}
+                                        objectFit="cover"
+                                        src="/icon/search.svg"
+                                        alt="Search Icon"
+                                   />
+                              </Stack>
+                              <Box direction="row" gap="0" alignItems="center">
+                                   <Button
+                                        variant="second-btn"
+                                        size="base"
+                                        // height={6}
+                                   >
+                                        Support
+                                   </Button>
+                                   <Button variant="main-btn" size="base">
+                                        Contact
+                                   </Button>
+                              </Box>
                          </Stack>
-                         <Stack>
-                              <Image
-                                   width={25}
-                                   height={25}
-                                   objectFit="cover"
-                                   src="/icon/search.svg"
-                                   alt="Search Icon"
-                              />
-                         </Stack>
-                         <Box direction="row" gap="0" alignItems="center">
-                              <Button
-                                   variant="second-btn"
-                                   size="base"
-                                   // height={6}
-                              >
-                                   Support
-                              </Button>
-                              <Button variant="main-btn" size="base">
-                                   Contact
-                              </Button>
-                         </Box>
-                    </Stack>
-               </Container>
+                    </Box>
+               </WideContainer>
           </Box>
      );
 };

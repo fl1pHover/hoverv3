@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Header from "../components/header";
 // import { motion } from "framer-motion";
+import NarrowContainer from "../components/container/narrowContainer";
 
 export default function Home() {
      return (
@@ -20,21 +21,25 @@ export default function Home() {
                     <Image
                          src="/images/orange-circle.svg"
                          position="absolute"
-                         maxWidth="50vw"
+                         left={{ base: "0%", sm: "5%" }}
+                         maxWidth={{ base: "80vw", md: "50vw" }}
+                         zIndex="-1"
+                    />
+                    <Image
+                         src="/images/blue-circle.svg"
+                         position="absolute"
+                         // transform="translateX(25%) translateY(-50%)"
+                         left={{ base: "20%", sm: "30%" }}
+                         top={{ base: "-2%", sm: "-5%", xl: "-13%" }}
+                         maxWidth={{ base: "80vw", md: "50vw" }}
                          zIndex="-1"
                     />
                </Box>
-               <Container
-                    maxW={{ base: "100%", sm: "100%", md: "80%", "2xl": "70%" }}
-                    justifyContent="flex-end"
-                    flexWrap="wrap"
-                    px="2vw"
-               >
+               <NarrowContainer>
                     <Heading
                          as="h1"
                          mt="1.2em"
                          mb="1em"
-                         bg={useColorModeValue("undefined", "whiteAlpha.200")}
                          fontSize={{
                               base: "calc(1.5rem + 3vw)",
                               sm: "calc(2rem + 3vw)",
@@ -44,6 +49,7 @@ export default function Home() {
                          // size="main-heading"
                          textAlign="left"
                          fontWeight="bold"
+                         background="transparent"
                     >
                          <span>Digital solutions</span> <br />
                          <span>based on human</span>
@@ -62,9 +68,22 @@ export default function Home() {
                               forstå og anvende.
                          </Text>
 
-                         <Button variant="main-btn" size="main" mt={3}>
+                         <Button
+                              className="main__btn"
+                              variant="main-btn"
+                              size="main"
+                              mt={3}
+                         >
+                              {/* <Image
+                                   src="/images/accesories/right-arrow.png"
+                                   className="right__arrow-hidden"
+                              /> */}
                               {/* <Image width={10} src="/images/right-arrow.svg" /> */}
                               Nmg dar sda
+                              {/* <Image
+                                   src="/images/accesories/right-arrow.png"
+                                   className="right__arrow"
+                              /> */}
                          </Button>
                     </Box>
 
@@ -86,7 +105,7 @@ export default function Home() {
                          løsningerne. Det er vores tilgang til digitale
                          løsninger.
                     </Heading>
-               </Container>
+               </NarrowContainer>
           </Box>
      );
 }
